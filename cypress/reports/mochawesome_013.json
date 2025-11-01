@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-11-01T03:38:26.258Z",
+    "end": "2025-11-01T03:38:32.862Z",
+    "duration": 6604,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "00e91583-f77b-43bb-aa54-c557df6b9356",
+      "title": "",
+      "fullFile": "cypress\\e2e\\tests\\TestCase10.cy.js",
+      "file": "cypress\\e2e\\tests\\TestCase10.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "16fb32c3-5718-4d75-b573-790f44a53c8f",
+          "title": "Test Case 10 - Verificar inscrição no rodapé da home page",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Deve verificar a inscrição no rodapé com sucesso",
+              "fullTitle": "Test Case 10 - Verificar inscrição no rodapé da home page Deve verificar a inscrição no rodapé com sucesso",
+              "timedOut": null,
+              "duration": 4720,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// 3. Verifica se a home page está visível\ncy.get('.carousel-inner', {\n  timeout: 10000\n}).should('be.visible');\n// 4. Faz scroll até o rodapé\ncy.scrollTo('bottom');\n// 5. Verifica o texto 'SUBSCRIPTION'\ncy.contains('Subscription', {\n  timeout: 10000\n}).should('be.visible');\n// 6. Digita o email e clica no botão de inscrição\ncy.get('#susbscribe_email').type('felipe.teste@exemplo.com');\ncy.get('#subscribe').click();\n// 7. Verifica a mensagem de sucesso\ncy.contains('You have been successfully subscribed!', {\n  timeout: 10000\n}).should('be.visible');",
+              "err": {},
+              "uuid": "9df30d57-a558-4a18-b297-c220968f22fd",
+              "parentUUID": "16fb32c3-5718-4d75-b573-790f44a53c8f",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "9df30d57-a558-4a18-b297-c220968f22fd"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 4720,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.3.0"
+    }
+  }
+}

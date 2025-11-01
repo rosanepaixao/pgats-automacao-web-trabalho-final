@@ -1,0 +1,109 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2025-11-01T03:39:01.264Z",
+    "end": "2025-11-01T03:39:52.829Z",
+    "duration": 51565,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "be4c8229-8ab0-4d53-a247-e27865128d80",
+      "title": "",
+      "fullFile": "cypress\\e2e\\tests\\TestCase2.cy.js",
+      "file": "cypress\\e2e\\tests\\TestCase2.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "e455184b-5bf2-45ee-8349-bbed02182714",
+          "title": "Test Case 2 - Login com email e senha corretos",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Deve fazer login com sucesso e excluir a conta",
+              "fullTitle": "Test Case 2 - Login com email e senha corretos Deve fazer login com sucesso e excluir a conta",
+              "timedOut": null,
+              "duration": 30795,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://automationexercise.com');\ncy.get('body').should('be.visible');\ncy.contains('Signup / Login').click();\ncy.contains('Login to your account').should('be.visible');\ncy.get('input[data-qa=\"login-email\"]').type(email);\ncy.get('input[data-qa=\"login-password\"]').type(password);\ncy.get('button[data-qa=\"login-button\"]').click();\ncy.get('a').contains(`Logged in as ${name}`).should('be.visible');\ncy.contains('Delete Account').click();\ncy.contains('Account Deleted!').should('be.visible');\ncy.get('a[data-qa=\"continue-button\"]').click();",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `a`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `a`, but never found it.\n    at Context.eval (webpack://automationexercise/./cypress/e2e/tests/TestCase2.cy.js:27:7)",
+                "diff": null
+              },
+              "uuid": "cc7920f0-2799-47dc-b223-7b0e304b685c",
+              "parentUUID": "e455184b-5bf2-45ee-8349-bbed02182714",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "cc7920f0-2799-47dc-b223-7b0e304b685c"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 30795,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.3.0"
+    }
+  }
+}

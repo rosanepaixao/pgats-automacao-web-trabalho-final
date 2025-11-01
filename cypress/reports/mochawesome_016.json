@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-11-01T03:39:55.053Z",
+    "end": "2025-11-01T03:40:05.126Z",
+    "duration": 10073,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "64667f31-8fe9-49e1-bc74-3ab014e5da63",
+      "title": "",
+      "fullFile": "cypress\\e2e\\tests\\TestCase3.cy.js",
+      "file": "cypress\\e2e\\tests\\TestCase3.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "ff29da14-9790-4edd-93d5-61d2bede7676",
+          "title": "Test Case 3 - Login com email e senha incorretos",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Deve exibir mensagem de erro ao tentar login com credenciais inválidas",
+              "fullTitle": "Test Case 3 - Login com email e senha incorretos Deve exibir mensagem de erro ao tentar login com credenciais inválidas",
+              "timedOut": null,
+              "duration": 7068,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// 3. Verifica se a home page está visível\ncy.get('.carousel-inner', {\n  timeout: 10000\n}).should('be.visible');\n// 4. Clica em 'Signup / Login'\ncy.contains('Signup / Login').click();\n// 5. Verifica 'Login to your account' está visível\ncy.contains('Login to your account', {\n  timeout: 10000\n}).should('be.visible');\n// 6. Preenche email e senha incorretos\ncy.get('input[data-qa=\"login-email\"]').type('email.invalido@teste.com');\ncy.get('input[data-qa=\"login-password\"]').type('senhaerrada');\n// 7. Clica em 'login'\ncy.get('button[data-qa=\"login-button\"]').click();\n// 8. Verifica mensagem de erro\ncy.contains('Your email or password is incorrect!', {\n  timeout: 10000\n}).should('be.visible');",
+              "err": {},
+              "uuid": "d9cc9520-15aa-4fa5-9cba-2bfd16499f5f",
+              "parentUUID": "ff29da14-9790-4edd-93d5-61d2bede7676",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "d9cc9520-15aa-4fa5-9cba-2bfd16499f5f"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 7068,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.3.0"
+    }
+  }
+}
