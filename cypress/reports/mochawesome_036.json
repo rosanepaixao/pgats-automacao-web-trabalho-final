@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-11-01T03:56:23.365Z",
+    "end": "2025-11-01T03:56:50.137Z",
+    "duration": 26772,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "d81e8767-8392-4c50-920c-2f80c32daf67",
+      "title": "",
+      "fullFile": "cypress\\e2e\\tests\\TestCase15.cy.js",
+      "file": "cypress\\e2e\\tests\\TestCase15.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "e32a0afb-f5c2-428f-9f90-955390c485a0",
+          "title": "Test Case 15 - Finalizar pedido com registro antes do checkout",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Deve registrar, fazer pedido e excluir conta com sucesso",
+              "fullTitle": "Test Case 15 - Finalizar pedido com registro antes do checkout Deve registrar, fazer pedido e excluir conta com sucesso",
+              "timedOut": null,
+              "duration": 26691,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// 3. Verifica home page\ncy.get('.carousel-inner', {\n  timeout: 10000\n}).should('be.visible');\n// 4. Clica em 'Signup / Login'\ncy.contains('Signup / Login').click();\n// 5. Preenche dados de cadastro\ncy.get('input[data-qa=\"signup-name\"]').type('Felipe');\ncy.get('input[data-qa=\"signup-email\"]').type(email);\ncy.get('button[data-qa=\"signup-button\"]').click();\n// Preenche formulário de criação de conta\ncy.get('#id_gender1').check();\ncy.get('#password').type('123456');\ncy.get('#days').select('10');\ncy.get('#months').select('May');\ncy.get('#years').select('1990');\ncy.get('#first_name').type('Felipe');\ncy.get('#last_name').type('Souza');\ncy.get('#address1').type('Rua Exemplo, 123');\n// Seleciona país corretamente\ncy.get('#country').should('be.visible').then($select => {\n  const options = $select.find('option').map((i, el) => Cypress.$(el).text().trim()).get();\n  if (options.includes('Brazil')) {\n    cy.get('#country').select('Brazil');\n  } else {\n    cy.get('#country').select(options[1]); // fallback\n  }\n});\ncy.get('#state').type('SP');\ncy.get('#city').type('São Paulo');\ncy.get('#zipcode').type('01234-567');\ncy.get('#mobile_number').type('11999999999');\ncy.get('button[data-qa=\"create-account\"]').click();\n// 6. Verifica 'ACCOUNT CREATED!' e clica em 'Continue'\ncy.contains('Account Created!', {\n  timeout: 10000\n}).should('be.visible');\ncy.get('a[data-qa=\"continue-button\"]').click();\n// 7. Verifica 'Logged in as Felipe'\ncy.contains(`Logged in as Felipe`, {\n  timeout: 10000\n}).should('be.visible');\n// 8. Adiciona produto ao carrinho\ncy.get('.features_items .product-overlay').first().invoke('show');\ncy.contains('Add to cart').click();\n// 9. Clica em 'Cart'\ncy.contains('View Cart').click();\n// 10. Verifica página do carrinho\ncy.url().should('include', '/view_cart');\ncy.contains('Shopping Cart', {\n  timeout: 10000\n}).should('be.visible');\n// 11. Clica em 'Proceed To Checkout'\ncy.contains('Proceed To Checkout').click();\n// 12. Verifica detalhes de endereço e revisão do pedido\ncy.contains('Address Details').should('be.visible');\ncy.contains('Review Your Order').should('be.visible');\n// 13. Insere comentário e clica em 'Place Order'\ncy.get('textarea[name=\"message\"]').type('Pedido de teste automatizado.');\ncy.contains('Place Order').click();\n// 14. Preenche dados de pagamento\ncy.get('input[name=\"name_on_card\"]').type('Felipe Souza');\ncy.get('input[name=\"card_number\"]').type('4111111111111111');\ncy.get('input[name=\"cvc\"]').type('123');\ncy.get('input[name=\"expiry_month\"]').type('12');\ncy.get('input[name=\"expiry_year\"]').type('2028');\n// 15. Clica em 'Pay and Confirm Order'\ncy.contains('Pay and Confirm Order').click();\n// 16. Verifica mensagem de sucesso atualizada\ncy.contains('Order Placed!', {\n  timeout: 10000\n}).should('be.visible');\ncy.contains('Congratulations! Your order has been confirmed!', {\n  timeout: 10000\n}).should('be.visible');\n// 17. Clica em 'Delete Account'\ncy.contains('Delete Account').click();\n// 18. Verifica 'ACCOUNT DELETED!' e clica em 'Continue'\ncy.contains('Account Deleted!', {\n  timeout: 10000\n}).should('be.visible');\ncy.get('a[data-qa=\"continue-button\"]').click();",
+              "err": {},
+              "uuid": "0ad8c7d4-b6ca-4215-94d1-396f1ba35877",
+              "parentUUID": "e32a0afb-f5c2-428f-9f90-955390c485a0",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "0ad8c7d4-b6ca-4215-94d1-396f1ba35877"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 26691,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.3.0"
+    }
+  }
+}

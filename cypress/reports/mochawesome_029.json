@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-11-01T03:50:01.845Z",
+    "end": "2025-11-01T03:50:29.135Z",
+    "duration": 27290,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "77c3c965-b0d7-4516-9e5c-fb2a140aebcb",
+      "title": "",
+      "fullFile": "cypress\\e2e\\tests\\TestCase5.cy.js",
+      "file": "cypress\\e2e\\tests\\TestCase5.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "b900326b-478a-49b8-8de3-622fb0861eb1",
+          "title": "Test Case 5 - Registro com email já existente",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Deve exibir erro ao tentar registrar com email já existente",
+              "fullTitle": "Test Case 5 - Registro com email já existente Deve exibir erro ao tentar registrar com email já existente",
+              "timedOut": null,
+              "duration": 27201,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// 2. Acessa o site\ncy.visit('https://automationexercise.com');\n// 3. Verifica se a home page está visível\ncy.get('.carousel-inner', {\n  timeout: 10000\n}).should('be.visible');\n// 4. Clica em 'Cadastrar-se / Entrar'\ncy.contains('Signup / Login').click();\n// 5. Verifica se \"Novo usuário se cadastrando!\" está visível\ncy.contains('New User Signup!', {\n  timeout: 10000\n}).should('be.visible');\n// 6. Insere nome e e-mail já cadastrado\ncy.get('input[data-qa=\"signup-name\"]').type(name);\ncy.get('input[data-qa=\"signup-email\"]').type(email);\n// 7. Clica no botão 'Cadastrar'\ncy.get('button[data-qa=\"signup-button\"]').click();\n// 8. Verifica se a mensagem de erro está visível\ncy.contains('Email Address already exist!', {\n  timeout: 10000\n}).should('be.visible');",
+              "err": {},
+              "uuid": "8575458a-9313-4068-bf6b-2e215da2fe56",
+              "parentUUID": "b900326b-478a-49b8-8de3-622fb0861eb1",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "8575458a-9313-4068-bf6b-2e215da2fe56"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 27201,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.3.0"
+    }
+  }
+}

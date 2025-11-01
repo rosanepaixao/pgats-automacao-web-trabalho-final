@@ -1,12 +1,14 @@
-// cypress.config.js
-const { defineConfig } = require("cypress");
+const { defineConfig } = require('cypress');
 
 module.exports = defineConfig({
   e2e: {
-    // ESTA LINHA CORRIGE O ERRO 404 E DEFINE A URL BASE
-    baseUrl: 'http://automationexercise.com', 
     setupNodeEvents(on, config) {
-      // implement node event listeners here
+      // eventos, se necessário
     },
-  },
+    baseUrl: 'https://automationexercise.com',
+    defaultCommandTimeout: 60000,
+    pageLoadTimeout: 60000,
+    requestTimeout: 60000,
+    responseTimeout: 60000
+  }
 });

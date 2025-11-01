@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-11-01T03:50:42.772Z",
+    "end": "2025-11-01T03:50:48.985Z",
+    "duration": 6213,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "5035deae-9a92-43c7-970b-daadf8cc40f1",
+      "title": "",
+      "fullFile": "cypress\\e2e\\tests\\TestCase8.cy.js",
+      "file": "cypress\\e2e\\tests\\TestCase8.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "326e43ff-e469-4e46-8212-a92aadfeea29",
+          "title": "Test Case 8 - Verificar todos os produtos e página de detalhes",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Deve visualizar todos os produtos e detalhes do primeiro produto",
+              "fullTitle": "Test Case 8 - Verificar todos os produtos e página de detalhes Deve visualizar todos os produtos e detalhes do primeiro produto",
+              "timedOut": null,
+              "duration": 6099,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// 3. Verifica se a home page está visível\ncy.get('.carousel-inner', {\n  timeout: 10000\n}).should('be.visible');\n// 4. Clica em 'Products'\ncy.get('a[href=\"/products\"]', {\n  timeout: 10000\n}).should('be.visible').click();\n// 5. Verifica que está na página ALL PRODUCTS\ncy.contains('All Products', {\n  timeout: 10000\n}).should('be.visible');\n// 6. Verifica que a lista de produtos está visível\ncy.get('.features_items .col-sm-4', {\n  timeout: 10000\n}).should('have.length.greaterThan', 0);\n// 7. Clica em 'View Product' do primeiro produto\ncy.get('.features_items .col-sm-4').first().contains('View Product').click();\n// 8. Verifica que está na página de detalhes do produto\ncy.url().should('include', '/product_details');\n// 9. Verifica os detalhes do produto\ncy.get('.product-information').within(() => {\n  cy.get('h2').should('be.visible'); // Nome do produto\n  cy.contains('Category').should('be.visible');\n  cy.contains('Rs.').should('be.visible'); // Preço\n  cy.contains('Availability').should('be.visible');\n  cy.contains('Condition').should('be.visible');\n  cy.contains('Brand').should('be.visible');\n});",
+              "err": {},
+              "uuid": "cb645c2f-15db-4af8-860f-b20bb485f02b",
+              "parentUUID": "326e43ff-e469-4e46-8212-a92aadfeea29",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "cb645c2f-15db-4af8-860f-b20bb485f02b"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 6099,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.3.0"
+    }
+  }
+}

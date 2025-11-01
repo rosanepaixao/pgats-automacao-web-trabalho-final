@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-11-01T04:02:41.661Z",
+    "end": "2025-11-01T04:02:51.171Z",
+    "duration": 9510,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "9800b041-570c-4a70-916d-3bfe369a7651",
+      "title": "",
+      "fullFile": "cypress\\e2e\\tests\\TestCase6.cy.js",
+      "file": "cypress\\e2e\\tests\\TestCase6.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "0a40faa4-7c2e-4b73-b34e-611532f203b8",
+          "title": "Test Case 6 - Formulário de Contato",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Deve enviar o formulário de contato com sucesso",
+              "fullTitle": "Test Case 6 - Formulário de Contato Deve enviar o formulário de contato com sucesso",
+              "timedOut": null,
+              "duration": 9456,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// 3. Verifica se a home page está visível\ncy.get('.carousel-inner', {\n  timeout: 10000\n}).should('be.visible');\n// 4. Clica em 'Contact Us' usando seletor direto\ncy.get('a[href=\"/contact_us\"]', {\n  timeout: 10000\n}).should('be.visible').click();\n// 5. Verifica 'GET IN TOUCH' está visível\ncy.contains('Get In Touch', {\n  timeout: 10000\n}).should('be.visible');\n// 6. Preenche nome, email, assunto e mensagem\ncy.get('input[data-qa=\"name\"]').type('Felipe Souza');\ncy.get('input[data-qa=\"email\"]').type('felipe.teste@exemplo.com');\ncy.get('input[data-qa=\"subject\"]').type('Dúvida sobre automação');\ncy.get('textarea[data-qa=\"message\"]').type('Olá, estou testando o formulário de contato com Cypress.');\n// 7. Faz upload de arquivo\ncy.get('input[type=\"file\"]').selectFile('cypress/fixtures/exemplo.txt');\n// 8. Clica em 'Submit'\ncy.get('input[data-qa=\"submit-button\"]').click();\n// 9. Trata o alerta de sucesso\ncy.on('window:alert', str => {\n  expect(str).to.match(/Success!/i);\n});\n// 10. Verifica mensagem de sucesso\ncy.contains('Success! Your details have been submitted successfully.', {\n  timeout: 10000\n}).should('be.visible');\n// 11. Clica em 'Home' e verifica que voltou para a home\ncy.contains('Home', {\n  timeout: 10000\n}).should('be.visible').click();\ncy.get('.carousel-inner', {\n  timeout: 10000\n}).should('be.visible');",
+              "err": {},
+              "uuid": "7e7db1a6-8fed-4cc6-b1e7-5db1ff05aad2",
+              "parentUUID": "0a40faa4-7c2e-4b73-b34e-611532f203b8",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "7e7db1a6-8fed-4cc6-b1e7-5db1ff05aad2"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 9456,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.3.0"
+    }
+  }
+}

@@ -1,0 +1,109 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2025-11-01T03:54:47.716Z",
+    "end": "2025-11-01T03:55:54.194Z",
+    "duration": 66478,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "aa687d90-605a-4aec-9a9f-d8ff48f7e759",
+      "title": "",
+      "fullFile": "cypress\\e2e\\setup\\createUser.cy.js",
+      "file": "cypress\\e2e\\setup\\createUser.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "1c4fa0b1-3665-41b4-929d-53683dce0b1b",
+          "title": "Criar usuário para testes futuros",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Deve registrar um novo usuário no site",
+              "fullTitle": "Criar usuário para testes futuros Deve registrar um novo usuário no site",
+              "timedOut": null,
+              "duration": 66400,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "const email = 'testcase_user@example.com';\nconst password = '123456';\ncy.visit('http://automationexercise.com');\ncy.contains('Signup / Login').click();\ncy.get('[data-qa=\"signup-name\"]').type('Usuário de Teste');\ncy.get('[data-qa=\"signup-email\"]').type(email);\ncy.get('[data-qa=\"signup-button\"]').click();\ncy.get('#id_gender1').check();\ncy.get('#password').type(password);\ncy.get('#days').select('10');\ncy.get('#months').select('May');\ncy.get('#years').select('1990');\ncy.get('#first_name').type('Teste');\ncy.get('#last_name').type('Usuário');\ncy.get('#address1').type('Rua Exemplo 123');\ncy.get('#country').select('Canada');\ncy.get('#state').type('SP');\ncy.get('#city').type('São Paulo');\ncy.get('#zipcode').type('12345');\ncy.get('#mobile_number').type('11999999999');\ncy.get('[data-qa=\"create-account\"]').click();\ncy.contains('Account Created!').should('be.visible');\ncy.get('[data-qa=\"continue-button\"]').click();",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 60000ms: Expected to find element: `#id_gender1`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 60000ms: Expected to find element: `#id_gender1`, but never found it.\n    at Context.eval (webpack://automationexercise/./cypress/e2e/setup/createUser.cy.js:14:7)",
+                "diff": null
+              },
+              "uuid": "c66247af-f526-4b30-bdf4-9887c58e28c4",
+              "parentUUID": "1c4fa0b1-3665-41b4-929d-53683dce0b1b",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "c66247af-f526-4b30-bdf4-9887c58e28c4"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 66400,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.3.0"
+    }
+  }
+}
