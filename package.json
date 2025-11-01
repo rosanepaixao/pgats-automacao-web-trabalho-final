@@ -10,7 +10,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
-    "cypress": "^15.5.0"
+    "cypress": "^15.5.0",
+    "mochawesome": "^7.1.4"
   },
   "dependencies": {
     "puppeteer": "^24.27.0"

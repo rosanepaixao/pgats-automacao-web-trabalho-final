@@ -1,0 +1,109 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2025-11-01T03:16:01.626Z",
+    "end": "2025-11-01T03:16:02.762Z",
+    "duration": 1136,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "1a4e4ef5-e64f-4765-ab91-c1b2467d6701",
+      "title": "",
+      "fullFile": "cypress\\e2e\\tests\\TestCase8.cy.js",
+      "file": "cypress\\e2e\\tests\\TestCase8.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "94443d62-9c68-462d-ab61-a73e95ae8a26",
+          "title": "Test Case 8 - Verificar todos os produtos e página de detalhes",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Deve visualizar todos os produtos e detalhes do primeiro produto",
+              "fullTitle": "Test Case 8 - Verificar todos os produtos e página de detalhes Deve visualizar todos os produtos e detalhes do primeiro produto",
+              "timedOut": null,
+              "duration": 1001,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "// 3. Verifica se a home page está visível\ncy.get('.carousel-inner', {\n  timeout: 10000\n}).should('be.visible');\n// 4. Clica em 'Products'\ncy.get('a[href=\"/products\"]', {\n  timeout: 10000\n}).should('be.visible').click();\n// 5. Verifica que está na página ALL PRODUCTS\ncy.contains('All Products', {\n  timeout: 10000\n}).should('be.visible');\n// 6. Verifica que a lista de produtos está visível\ncy.get('.features_items .col-sm-4', {\n  timeout: 10000\n}).should('have.length.greaterThan', 0);\n// 7. Clica em 'View Product' do primeiro produto\ncy.get('.features_items .col-sm-4').first().contains('View Product').click();\n// 8. Verifica que está na página de detalhes do produto\ncy.url().should('include', '/product_details');\n// 9. Verifica os detalhes do produto\ncy.get('.product-information').within(() => {\n  cy.get('h2').should('be.visible'); // Nome do produto\n  cy.contains('Category').should('be.visible');\n  cy.contains('Rs.').should('be.visible'); // Preço\n  cy.contains('Availability').should('be.visible');\n  cy.contains('Condition').should('be.visible');\n  cy.contains('Brand').should('be.visible');\n});",
+              "err": {
+                "message": "CypressError: `cy.visit()` failed trying to load:\n\nhttps://automationexercise.com/\n\nThe response we received from your web server was:\n\n  > 503: Service Unavailable\n\nThis was considered a failure because the status code was not `2xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\nBecause this error occurred during a `before each` hook we are skipping the remaining tests in the current suite: `Test Case 8 - Verificar tod...`",
+                "estack": "CypressError: `cy.visit()` failed trying to load:\n\nhttps://automationexercise.com/\n\nThe response we received from your web server was:\n\n  > 503: Service Unavailable\n\nThis was considered a failure because the status code was not `2xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\nBecause this error occurred during a `before each` hook we are skipping the remaining tests in the current suite: `Test Case 8 - Verificar tod...`\n    at <unknown> (http://automationexercise.com/__cypress/runner/cypress_runner.js:134395:76)\n    at visitFailedByErr (http://automationexercise.com/__cypress/runner/cypress_runner.js:133985:12)\n    at <unknown> (http://automationexercise.com/__cypress/runner/cypress_runner.js:134378:13)\n    at tryCatcher (http://automationexercise.com/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise._settlePromiseFromHandler (http://automationexercise.com/__cypress/runner/cypress_runner.js:1489:31)\n    at Promise._settlePromise (http://automationexercise.com/__cypress/runner/cypress_runner.js:1546:18)\n    at Promise._settlePromise0 (http://automationexercise.com/__cypress/runner/cypress_runner.js:1591:10)\n    at Promise._settlePromises (http://automationexercise.com/__cypress/runner/cypress_runner.js:1667:18)\n    at _drainQueueStep (http://automationexercise.com/__cypress/runner/cypress_runner.js:2377:12)\n    at _drainQueue (http://automationexercise.com/__cypress/runner/cypress_runner.js:2370:9)\n    at Async._drainQueues (http://automationexercise.com/__cypress/runner/cypress_runner.js:2386:5)\n    at Async.drainQueues (http://automationexercise.com/__cypress/runner/cypress_runner.js:2256:14)\nFrom Your Spec Code:\n    at Context.eval (webpack://automationexercise/./cypress/e2e/tests/TestCase8.cy.js:6:7)",
+                "diff": null
+              },
+              "uuid": "9f9beb12-0df2-40ad-a363-ac1def12bb63",
+              "parentUUID": "94443d62-9c68-462d-ab61-a73e95ae8a26",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "9f9beb12-0df2-40ad-a363-ac1def12bb63"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 1001,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.3.0"
+    }
+  }
+}
