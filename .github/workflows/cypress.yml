@@ -23,7 +23,7 @@ jobs:
             - name: Run Cypress tests
               run: npx cypress run --reporter mochawesome --reporter-options reportDir=cypress/reports,overwrite=false,html=true,json=true
             - name: Upload Mochawesome Report
-              uses: actions/upload-artifact@v3
+            - uses: actions/upload-artifact@v4
               with:
                   name: mochawesome-report
                   path: cypress/reports
