@@ -1,21 +1,21 @@
 const fs = require('fs');
 const puppeteer = require('puppeteer');
 
-(async () => {
-  const timestamp = Date.now();
-  const email = `rosanepaixao_${timestamp}@example.com`;
+const MAX_RETRIES = 3;
+
+async function realizarCadastro(email, tentativa) {
   const password = '123456';
   const name = 'Rosa Paixão';
 
+  const browser = await puppeteer.launch({
+    headless: true,
+    args: ['--no-sandbox', '--disable-setuid-sandbox']
+  });
+
+  const page = await browser.newPage();
+
   try {
-    fs.writeFileSync('email.txt', email);
-
-    const browser = await puppeteer.launch({
-      headless: true,
-      args: ['--no-sandbox', '--disable-setuid-sandbox']
-    });
-
-    const page = await browser.newPage();
+    console.log(`Tentativa ${tentativa}: acessando site...`);
     await page.goto('https://automationexercise.com', { waitUntil: 'networkidle2', timeout: 60000 });
 
     await page.click('a[href="/login"]');
@@ -31,6 +31,7 @@ const puppeteer = require('puppeteer');
     await page.select('#days', '10');
     await page.select('#months', '5');
     await page.select('#years', '1990');
+    await page.type('#first_name', 'Rosa');
     await page.type('#last_name', 'Paixão');
     await page.type('#address1', 'Rua das Flores, 123');
     await page.select('#country', 'Canada');
@@ -40,7 +41,7 @@ const puppeteer = require('puppeteer');
     await page.type('#mobile_number', '11999999999');
     await page.click('button[data-qa="create-account"]');
 
-    // Aumenta o tempo de espera para o elemento de confirmação
+    // Espera confirmação de criação da conta
     await page.waitForSelector('h2[data-qa="account-created"]', { timeout: 30000 });
 
     await page.click('a[data-qa="continue-button"]');
@@ -52,9 +53,30 @@ const puppeteer = require('puppeteer');
     await page.click('a[href="/logout"]');
 
     await browser.close();
-    process.exit(0);
+    return true;
   } catch (error) {
-    console.error('Erro durante o cadastro:', error);
-    process.exit(1);
+    console.error(`Erro na tentativa ${tentativa}:`, error.message);
+    await page.screenshot({ path: `cadastro-falhou-${tentativa}.png` });
+    await browser.close();
+    return false;
   }
+}
+
+(async () => {
+  const timestamp = Date.now();
+  const email = `rosanepaixao_${timestamp}@example.com`;
+  fs.writeFileSync('email.txt', email);
+
+  for (let tentativa = 1; tentativa <= MAX_RETRIES; tentativa++) {
+    const sucesso = await realizarCadastro(email, tentativa);
+    if (sucesso) {
+      console.log('Cadastro realizado com sucesso!');
+      process.exit(0);
+    } else {
+      console.log(`Tentativa ${tentativa} falhou.`);
+    }
+  }
+
+  console.error('Todas as tentativas de cadastro falharam.');
+  process.exit(1);
 })();

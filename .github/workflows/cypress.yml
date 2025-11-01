@@ -52,3 +52,10 @@ jobs:
         with:
           name: mochawesome-report
           path: cypress/reports
+
+      - name: Upload Cypress Screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cypress-screenshots
+          path: cypress/screenshots
