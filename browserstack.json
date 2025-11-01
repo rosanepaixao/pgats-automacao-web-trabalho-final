@@ -1,0 +1,33 @@
+{
+  "auth": {
+    "username": "rosanepaixao_nMp2z5",
+    "access_key": "VZZmFMScPPptr4jH3UxS"
+  },
+  "browsers": [
+    {
+      "browser": "chrome",
+      "os": "Windows",
+      "os_version": "10"
+    }
+  ],
+  "run_settings": {
+    "cypress_config_file": "cypress.config.js",
+    "project_name": "Automation Exercise Tests",
+    "build_name": "Build #1",
+    "parallels": 5,
+    "specs": ["cypress/e2e/**/*.cy.js"],
+    "exclude": [],
+    "npm_dependencies": {},
+    "auto_import_dev_dependencies": false,
+    "exclude_dependencies": [],
+    "package_config_options": {},
+    "headless": true
+  },
+  "connection_settings": {
+    "local": false,
+    "local_identifier": null,
+    "local_mode": null,
+    "local_config_file": null
+  },
+  "disable_usage_reporting": false
+}
