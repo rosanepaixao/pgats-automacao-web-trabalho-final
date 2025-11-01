@@ -8,34 +8,29 @@ const puppeteer = require('puppeteer');
   const name = 'Rosa Paixão';
 
   try {
-    // Salva o e-mail gerado em email.txt
     fs.writeFileSync('email.txt', email);
 
-    // Inicia o navegador com flags compatíveis com ambientes CI
     const browser = await puppeteer.launch({
       headless: true,
       args: ['--no-sandbox', '--disable-setuid-sandbox']
     });
 
     const page = await browser.newPage();
-    await page.goto('https://automationexercise.com', { waitUntil: 'networkidle2' });
+    await page.goto('https://automationexercise.com', { waitUntil: 'networkidle2', timeout: 60000 });
 
-    // Acessa a página de cadastro
     await page.click('a[href="/login"]');
-    await page.waitForSelector('input[data-qa="signup-name"]', { timeout: 10000 });
+    await page.waitForSelector('input[data-qa="signup-name"]', { timeout: 20000 });
 
-    // Preenche o formulário de cadastro
     await page.type('input[data-qa="signup-name"]', name);
     await page.type('input[data-qa="signup-email"]', email);
     await page.click('button[data-qa="signup-button"]');
 
-    await page.waitForSelector('#id_gender2', { timeout: 10000 });
+    await page.waitForSelector('#id_gender2', { timeout: 20000 });
     await page.click('#id_gender2');
     await page.type('#password', password);
     await page.select('#days', '10');
     await page.select('#months', '5');
     await page.select('#years', '1990');
-    page.type('#first_name', 'Rosa');
     await page.type('#last_name', 'Paixão');
     await page.type('#address1', 'Rua das Flores, 123');
     await page.select('#country', 'Canada');
@@ -45,16 +40,15 @@ const puppeteer = require('puppeteer');
     await page.type('#mobile_number', '11999999999');
     await page.click('button[data-qa="create-account"]');
 
-    // Confirma criação da conta
-    await page.waitForSelector('h2[data-qa="account-created"]', { timeout: 10000 });
+    // Aumenta o tempo de espera para o elemento de confirmação
+    await page.waitForSelector('h2[data-qa="account-created"]', { timeout: 30000 });
+
     await page.click('a[data-qa="continue-button"]');
 
-    // Aguarda texto "Logged in as"
     await page.waitForFunction(() => {
       return [...document.querySelectorAll('a')].some(el => el.textContent.includes('Logged in as'));
-    }, { timeout: 10000 });
+    }, { timeout: 20000 });
 
-    // Faz logout
     await page.click('a[href="/logout"]');
 
     await browser.close();
