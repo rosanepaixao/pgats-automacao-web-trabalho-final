@@ -1,4 +1,3 @@
-
 const fs = require('fs');
 const puppeteer = require('puppeteer');
 
@@ -9,18 +8,23 @@ const puppeteer = require('puppeteer');
   const name = 'Rosa Paixão';
 
   try {
-    // Save the generated email to email.txt
+    // Salva o e-mail gerado em email.txt
     fs.writeFileSync('email.txt', email);
 
-    const browser = await puppeteer.launch({ headless: true });
+    // Inicia o navegador com flags compatíveis com ambientes CI
+    const browser = await puppeteer.launch({
+      headless: true,
+      args: ['--no-sandbox', '--disable-setuid-sandbox']
+    });
+
     const page = await browser.newPage();
     await page.goto('https://automationexercise.com', { waitUntil: 'networkidle2' });
 
-    // Access the signup/login page
+    // Acessa a página de cadastro
     await page.click('a[href="/login"]');
     await page.waitForSelector('input[data-qa="signup-name"]', { timeout: 10000 });
 
-    // Fill out the signup form
+    // Preenche o formulário de cadastro
     await page.type('input[data-qa="signup-name"]', name);
     await page.type('input[data-qa="signup-email"]', email);
     await page.click('button[data-qa="signup-button"]');
@@ -31,7 +35,7 @@ const puppeteer = require('puppeteer');
     await page.select('#days', '10');
     await page.select('#months', '5');
     await page.select('#years', '1990');
-    await page.type('#first_name', 'Rosa');
+    page.type('#first_name', 'Rosa');
     await page.type('#last_name', 'Paixão');
     await page.type('#address1', 'Rua das Flores, 123');
     await page.select('#country', 'Canada');
@@ -41,16 +45,16 @@ const puppeteer = require('puppeteer');
     await page.type('#mobile_number', '11999999999');
     await page.click('button[data-qa="create-account"]');
 
-    // Confirm account creation
+    // Confirma criação da conta
     await page.waitForSelector('h2[data-qa="account-created"]', { timeout: 10000 });
     await page.click('a[data-qa="continue-button"]');
 
-    // Wait for "Logged in as" text to appear
+    // Aguarda texto "Logged in as"
     await page.waitForFunction(() => {
       return [...document.querySelectorAll('a')].some(el => el.textContent.includes('Logged in as'));
     }, { timeout: 10000 });
 
-    // Click logout
+    // Faz logout
     await page.click('a[href="/logout"]');
 
     await browser.close();
